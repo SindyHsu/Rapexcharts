@@ -81,15 +81,15 @@ Rapexcharts  <- function(data,type,title=NULL,width=NULL,height=NULL, data_label
     x$xaxis <- list(categories=row.names(data))
     if(!is.null(sparkLine_num)){
       x$title <- list(
-        text=unbox(sparkLine_num),
-        offsetX=unbox(0),
-        style=list(fontSize=unbox('24px'))
+        text=unbox(sparkLine_num)
+        #offsetX=unbox(0),
+        #style=list(fontSize=unbox('24px'))
       )
       if(!is.null(title)){
         x$subtitle <- list(
-          text=unbox(title),
-          offsetX=unbox(0),
-          style=list(fontSize=unbox('14px'))
+          text=unbox(title)
+          #offsetX=unbox(0),
+          #style=list(fontSize=unbox('14px'))
         )
       }
     }
