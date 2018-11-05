@@ -72,7 +72,7 @@ Rapexcharts  <- function(data,type,title=NULL,width=NULL,height=NULL, data_label
   }else if(type[1]%in%c("sparkLine")){
     x$chart <- list(
       type=unbox('area'),
-      height=unbox(160),
+      #height=unbox(160),
       sparkline=list(enabled=unbox(TRUE)),
       stroke=list(curve=unbox('straight'))
     )
