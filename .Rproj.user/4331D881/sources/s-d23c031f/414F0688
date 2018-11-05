@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1540887748705.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "414F0688",
+    "lastKnownWriteTime" : 1541064313,
+    "last_content_update" : 1541064313847,
+    "path" : "~/Rapexcharts/example.R",
+    "project_path" : "example.R",
+    "properties" : {
+        "cursorPosition" : "11,0",
+        "scrollLine" : "5"
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

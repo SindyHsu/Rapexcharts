@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1540887745513.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "493A0FD",
+    "lastKnownWriteTime" : 1541141566,
+    "last_content_update" : 1541141566387,
+    "path" : "~/Rapexcharts/R/series.R",
+    "project_path" : "R/series.R",
+    "properties" : {
+        "cursorPosition" : "41,70",
+        "scrollLine" : "0"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

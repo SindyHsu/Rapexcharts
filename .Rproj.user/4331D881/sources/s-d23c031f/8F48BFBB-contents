@@ -1,0 +1,102 @@
+Rapexcharts <- function(data,
+                        type=c("line","column"),title = NULL,sparkLine_num = NULL,
+                        width = NULL, height = NULL, elementId = NULL) {
+  
+  # forward options using x
+  x <- list()
+  if(type=='area'){
+    x$chart <- list(
+      type=unbox('area'),
+      zoom=list(enabled=unbox(FALSE)),
+      sparkline=list(enabled=unbox(TRUE)),
+      stroke=list(curve=unbox('smooth'))
+    )
+  }else{
+    x$chart <- list(
+      type=unbox('line'),
+      zoom=list(enabled=unbox(FALSE)),
+      dataLabels=list(enabled=unbox(TRUE)),
+      stroke=list(curve=unbox('smooth'))
+    )
+  }
+  
+  
+  if(!is.null(sparkLine_num)){
+    x$title <- list(
+      text=unbox(sparkLine_num),
+      offsetX=unbox(0),
+      style=list(fontSize=unbox('24px'))
+    )
+    if(!is.null(title)){
+      x$subtitle <- list(
+        text=unbox(title),
+        offsetX=unbox(0),
+        style=list(fontSize=unbox('14px'))
+      )
+    }
+  }else{
+    x$title <- list(
+      text=unbox('test'),
+      align=unbox('align'),
+      offsetY=unbox(-5)
+    )
+  }
+  
+  x$series <- series_rectangular(data,type)
+  # 图形标记
+  x$dataLabels <- list(enabled=unbox(TRUE))
+  x$xaxis <- list(categories=row.names(data))
+  
+  # 图形区域的分割
+  x$grid <- list(
+    borderColor=unbox('#e7e7e7'),
+    row=list(colors=c('#f3f3f3','transparent'),opacity=unbox(0.5))
+  )
+  #图例
+  x$legend <- list(
+    position=unbox('top'),
+    horizontalAlign=unbox('center'),
+    verticalAlign=unbox('middle'),
+    floating=unbox(TRUE),
+    offsetY=unbox(-20)
+  )
+  x <- jsonlite::toJSON(x)
+  
+  # create widget
+  htmlwidgets::createWidget(
+    name = 'Rapexcharts',
+    x,
+    width = width,
+    height = height,
+    package = 'Rapexcharts',
+    elementId = elementId
+  )
+}
+
+#' Shiny bindings for Rapexcharts
+#'
+#' Output and render functions for using Rapexcharts within Shiny
+#' applications and interactive Rmd documents.
+#'
+#' @param outputId output variable to read from
+#' @param width,height Must be a valid CSS unit (like \code{'100\%'},
+#'   \code{'400px'}, \code{'auto'}) or a number, which will be coerced to a
+#'   string and have \code{'px'} appended.
+#' @param expr An expression that generates a Rapexcharts
+#' @param env The environment in which to evaluate \code{expr}.
+#' @param quoted Is \code{expr} a quoted expression (with \code{quote()})? This
+#'   is useful if you want to save an expression in a variable.
+#'
+#' @name Rapexcharts-shiny
+#'
+#' @export
+RapexchartsOutput <- function(outputId, width = '100%', height = '400px'){
+  htmlwidgets::shinyWidgetOutput(outputId, 'Rapexcharts', width, height, package = 'Rapexcharts')
+}
+
+#' @rdname Rapexcharts-shiny
+#' @export
+renderRapexcharts <- function(expr, env = parent.frame(), quoted = FALSE) {
+  if (!quoted) { expr <- substitute(expr) } # force quoted
+  htmlwidgets::shinyRenderWidget(expr, RapexchartsOutput, env, quoted = TRUE)
+}
