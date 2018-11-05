@@ -78,6 +78,7 @@ Rapexcharts  <- function(data,type,title=NULL,width=NULL,height=NULL, data_label
     )
     #数据
     x$series <- series_sparkLine(data,type)
+    x$xaxis <- list(categories=row.names(data))
     if(!is.null(sparkLine_num)){
       x$title <- list(
         text=unbox(sparkLine_num),
