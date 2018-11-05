@@ -72,8 +72,8 @@ Rapexcharts  <- function(data,type,title=NULL,width=NULL,height=NULL, data_label
   }else if(type[1]%in%c("sparkLine")){
     x$chart <- list(
       type=unbox('area'),
-      height=unbox(160),
-      width=unbox(200),
+      #height=unbox(160),
+      #width=unbox(200),
       sparkline=list(enabled=unbox(TRUE)),
       stroke=list(curve=unbox('straight'))
     )
@@ -82,15 +82,15 @@ Rapexcharts  <- function(data,type,title=NULL,width=NULL,height=NULL, data_label
     x$xaxis <- list(categories=row.names(data))
     if(!is.null(sparkLine_num)){
       x$title <- list(
-        text=unbox(sparkLine_num),
-        offsetX=unbox(0),
-        style=list(fontSize=unbox('24px'))
+        text=unbox(sparkLine_num)
+        #offsetX=unbox(0),
+        #style=list(fontSize=unbox('24px'))
       )
       if(!is.null(title)){
         x$subtitle <- list(
-          text=unbox(title),
-          offsetX=unbox(0),
-          style=list(fontSize=unbox('14px'))
+          text=unbox(title)
+          #offsetX=unbox(0),
+          #style=list(fontSize=unbox('14px'))
         )
       }
     }
