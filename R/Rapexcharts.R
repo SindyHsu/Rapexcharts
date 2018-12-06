@@ -58,7 +58,7 @@ Rapexcharts  <- function(data,type,title=NULL,width=NULL,height=NULL, data_label
                      offsetY=unbox(-10),offsetX=unbox(-5))
   }else if(type[1]%in%c("pie")){
     x$chart <- list(
-      width=unbox('100%'),
+     # width=unbox('100%'),
       type=unbox('pie')
     )
     #数据
@@ -72,7 +72,7 @@ Rapexcharts  <- function(data,type,title=NULL,width=NULL,height=NULL, data_label
   }else if(type[1]%in%c("sparkLine")){
     x$chart <- list(
       type=unbox('area'),
-      height=unbox(160),
+      #height=unbox(160),
       #width=unbox(200),
       sparkline=list(enabled=unbox(TRUE)),
       stroke=list(curve=unbox('straight'))
