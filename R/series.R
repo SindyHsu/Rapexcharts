@@ -20,7 +20,7 @@ series_sparkLine <- function(data,type){
   #可以在此修改sparkLine图形类别
   for(i in seq(length(data))){
     data[[i]] <- list(name=unbox(list_name[i]),
-                      type=unbox('area'),
+                      type=unbox('line'),
                       data=data[[i]])
   }
   return(data)
